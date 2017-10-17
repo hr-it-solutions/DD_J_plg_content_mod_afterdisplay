@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.8.0" type="plugin" group="content" method="upgrade">
+    <name>PLG_CONTENT_MOD_AFTERDISPLAY</name>
+    <version>1.0.0.0</version>
+    <creationDate>17.10.2017</creationDate>
+    <author>HR IT-Solutions Florian Häusler</author>
+    <authorEmail>info@hr-it-solutions.com</authorEmail>
+    <authorUrl>https://www.hr-it-solutions.com</authorUrl>
+    <copyright>Copyright (C) 2017 - 2017 Didldu e.K. | HR IT-Solutions</copyright>
+    <license>GNU/GPLv2 only</license>
+    <description>PLG_CONTENT_MOD_AFTERDISPLAY_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="dd_mod_afterdisplay">dd_mod_afterdisplay.php</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.plg_content_dd_mod_afterdisplay.sys.ini</language>
+    </languages>
+    <updateservers>
+        <server type="collection" priority="1" name="HR IT-Solutions Updates">http://www.hr-it-solutions.com/jextensions/update.xml</server>
+    </updateservers>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+
+                <field name="customposition"
+                       type="text"
+                       default="dd-mod-afterdisplay"
+                       label="PLG_CONTENT_MOD_AFTERDISPLAY_CUSTOMPOSITION_LABEL"
+                       description="PLG_CONTENT_MOD_AFTERDISPLAY_CUSTOMPOSITION_DESC"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
