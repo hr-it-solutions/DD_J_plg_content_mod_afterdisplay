@@ -19,11 +19,6 @@ jimport('joomla.access.access');
  */
 class PlgContentDD_Mod_AfterDisplay extends JPlugin
 {
-	protected $app;
-
-	protected $modules = array();
-
-
 	/**
 	 * onContentAfterDisplay
 	 *
@@ -47,40 +42,48 @@ class PlgContentDD_Mod_AfterDisplay extends JPlugin
 		// Get plugin parameter
 		$customposition  = (string) $this->params->get('customposition');
 
-		print_r($this->_load($customposition));
-		die;
-
-		$return = false;
-
-		return $return;
+		return $this->_load($customposition);
 	}
 
 	/**
-	 * Loads and renders the module
+	 * Loads and renders the module into $this->html
 	 *
 	 * @param   string  $position  The position assigned to the module
 	 * @param   string  $style     The style assigned to the module
 	 *
-	 * @return  mixed
+	 * @return  boolean|string  HTML string containing the html for the module if loaded else boolean false
 	 *
-	 * @since   1.6
+	 * @since   1.0.0.0
 	 */
 	protected function _load($position, $style = 'none')
 	{
-		$this->modules[$position] = '';
-		$document = JFactory::getDocument();
-		$renderer = $document->loadRenderer('module');
-		$modules  = JModuleHelper::getModules($position);
-		$params   = array('style' => $style);
-		ob_start();
+		$modules = JModuleHelper::getModules($position);
+		$params  = array('style' => $style);
 
-		foreach ($modules as $module)
+		if (count($modules))
 		{
-			echo $renderer->render($module, $params);
+			$modules = array_chunk($modules, 2);
+
+			ob_start();
+
+			foreach ($modules as $modulegroup)
+			{
+				echo '<div class="row-fluid">';
+
+				foreach ($modulegroup as $module) :
+					echo '<div class="span12">';
+					echo JModuleHelper::renderModule($module, $params);
+					echo '</div>';
+				endforeach;
+
+				echo '</div>';
+			}
+
+			return ob_get_clean();
 		}
-
-		$this->modules[$position] = ob_get_clean();
-
-		return $this->modules[$position];
+		else
+		{
+			return false;
+		}
 	}
 }
