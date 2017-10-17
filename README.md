@@ -1,12 +1,13 @@
 [![DDSTATE](https://img.shields.io/badge/status-ALPHA-red.svg?style=flat)](https://img.shields.io/badge/status-ALPHA-red.svg?style=flat)
 
-# DD_J_plg_content_module_afterdisplay
-A Joomla! content plugin to set a custom moduleposition at afterDisplay event area
+# DD_J_plg_content_mod_afterdisplay
+A Joomla! content plugin to set a custom moduleposition at afterDisplay event area position.
 
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=102)](https://opensource.org/licenses/GPL-2.0/)
 
 ### Features
-- Set a custom moduleposition at afterDisplay event area
+- Set a custom moduleposition at afterDisplay event area position.
+- Default position is called `dd-module-afterdisplay`
 
 # System requirements
 Joomla 3.7 +                                                                                <br>
