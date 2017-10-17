@@ -7,7 +7,7 @@ A Joomla! content plugin to set a custom moduleposition at afterDisplay event ar
 
 ### Features
 - Set a custom moduleposition at afterDisplay event area position.
-- Default position is called `dd-module-afterdisplay`
+- Default position is called `dd-mod-afterdisplay`
 
 # System requirements
 Joomla 3.7 +                                                                                <br>
